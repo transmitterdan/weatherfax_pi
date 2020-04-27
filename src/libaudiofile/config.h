@@ -1,7 +1,9 @@
 #if defined(__MSVC__)
   #include <BaseTsd.h>
   typedef int ssize_t;
-  #define snprintf  _snprintf
+  #if _MSC_VER < 1900
+    #define snprintf  _snprintf
+  #endif
   #define HAVE_UNISTD_H 0
 
   #pragma warning(disable: 4244)
